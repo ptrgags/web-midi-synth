@@ -118,7 +118,7 @@ class ChordTable {
     }
 
     make_osc(midi_note) {
-        const AMP = 0.5;
+        const AMP = 0.7;
         let freq = midiToFreq(midi_note);
         let osc = new p5.Oscillator();
         osc.setType('sine');

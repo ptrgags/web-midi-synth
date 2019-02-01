@@ -26,7 +26,6 @@ class MIDIKeyboard {
 
     on_message(message) {
         let [command, note,] = message.data;
-        console.log(command, note);
         if (command === this.MIDI_MSG_ON) {
             this.note_on(note); 
         } else if (command === this.MIDI_MSG_OFF) {
