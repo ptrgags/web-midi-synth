@@ -17,7 +17,7 @@ class OscTable {
             osc.freq(freq);
             //let osc = new p5.Pulse(freq, 0.2);
             osc.amp(0);
-            osc.start();
+            //osc.start();
 
             // Store it in the table
             this.osc_table[i] = osc;
@@ -28,11 +28,20 @@ class OscTable {
         const AMP = 0.5;
         const ATTACK = 0.0;
         this.osc_table[note_num].amp(AMP, ATTACK);
+        this.osc_table[note_num].start();
     }
 
     note_off(note_num) {
         const OFF = 0;
         const RELEASE = 0.0;
         this.osc_table[note_num].amp(OFF, RELEASE);
+        this.osc_table[note_num].stop();
+    }
+
+    off() {
+        for (let i = 0; i < this.NUM_PITCHES; i++) {
+            this.osc_table[i].amp(0);
+            this.osc_table[i].stop();
+        }
     }
 }
